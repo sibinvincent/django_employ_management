@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+           margin: 0;
+        }
+        ul {
+           list-style: none;
+           padding-left: 30%;
+        }
+    </style>
+</head>
+<body style=" height:630px;  background-image: url('/media/pics/banner.png');background-repeat: no-repeat;background-size: cover;">
+<div  >
+       <div>
+
+        <form method="post"  style="margin-left: 40%;margin-right: 35%;margin-top: 20%;padding-top:2%;padding-bottom:2%; background: #D7D7D7; border-radius: 5%;">
+            {% csrf_token %}
+
+            <ul>
+                 <li> <h3>Login</h3></li>
+                <br>
+                <li><h3>Username</h3></li>
+                <li>{{form.username}}</li>
+                <br>
+
+                <li><h3>Password</h3></li>
+                <li>{{form.password}}</li>
+            </ul>
+            <br>
+
+
+            <input type="submit" value="Submit" style="margin-left: 40%;">
+        </form>
+       </div>
+</div>
+
+
+</body>
+</html>

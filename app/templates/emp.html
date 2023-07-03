@@ -1,0 +1,138 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/media/font/fontello.css" type="text/css">
+    <style>
+        table {
+             width: 100%;
+             padding-top: 2%;
+             padding-left: 1%;
+             padding-right: 1%;
+
+        }
+        table td {
+           border: 1px solid grey;
+
+
+        }
+        table tr:hover {
+                background: #FAF0E6;
+
+        }
+
+         table th {
+
+           background: #B3B3B3;
+           color: black;
+        }
+        table tr {
+              background: #D7D7D7;
+              color: blue;
+              height: 50px;
+        }
+        h3 {
+           display: inline-block;
+           margin-left: 40%;
+           margin-right: 40%;
+        }
+
+        .icon-trash:hover {
+                   color: red;
+        }
+
+        .icon-edit-alt:hover {
+                   color: blue;
+        }
+
+        .icon-pencil:hover {
+                   color: green;
+        }
+        .icon-user-plus {
+                font-size: 20px;
+        }
+        .icon-logout{
+              font-size: 20px;
+        }
+
+    </style>
+</head>
+
+<body style=" background-color: rgb(221, 208, 216); margin: 0;">
+         <h3 style="margin-top: 4%;background: #D7D7D7; padding: 5px;border: solid 2px grey">Employee Details</h3>
+       <section style="margin-top: 2%; text-align: right; margin-right: 2%">
+          {% if user.is_authenticated %}
+               <a href="{% url 'create' %}" style="text-decoration: none;">
+               <button style="color: blue; margin-right: 2%; " class="icon-user-plus"> Add</button></a>
+               <a href="{% url 'logout' %}" style="text-decoration: none;">
+               <button style="color: blue;" class="icon-logout">Logout</button></a>
+
+           {% endif %}
+       </section>
+
+
+      <div>
+
+          <table>
+              <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Designation </th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Qualification</th>
+                  <th>Address</th>
+                  <th>Remarks</th>
+                  <th>Salary</th>
+                  <th>Status</th>
+                  <th>Joining Date</th>
+                  <th>Actions</th>
+              </tr>
+               {% for x in emp %}
+              <tr>
+                  <td style="text-align: center">{{ x.id}}</td>
+                  <td>{{ x.employee_name}}</td>
+                  <td>{{ x.designation}}</td>
+                  <td>{{ x.phone}}</td>
+                  <td>{{ x.email}}</td>
+                  <td>{{ x.qualification}}</td>
+                  <td>
+                    {% if x.address|length <= 10 %}
+                    {{ x.address }}
+                    {% else %}
+                    {{ x.address|slice:":30" }}... <a href="{% url 'details' x.id %}"
+                                                             style="color: blue">More</a>
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if x.remarks|length <= 10 %}
+                    {{ task.remarks }}
+                    {% else %}
+                    {{ x.remarks|slice:":30" }}... <a href="{% url 'details' x.id %}"
+                                                             style="color: blue">More</a>
+                    {% endif %}
+                  </td>
+                  <td>{{ x.salary}}</td>
+                  <td style="text-align: center">{% if x.Status %} Working {% else %} Left {% endif %}</td>
+                  <td>{{ x.created}}</td>
+                  <td style="text-align: center">
+                      <a href="{% url 'details' x.id %}" style="text-decoration: none"><button class="icon-edit-alt" style="font-size: 20px;cursor: pointer; "></button></a>
+                      <a href="{% url 'delete' x.id %}"style="text-decoration: none"><button class="icon-trash" style="font-size: 20px; cursor: pointer;"></button></a>
+                      <a href="{% url 'update' x.id %}"style="text-decoration: none"><button class="icon-pencil" style="font-size: 20px; cursor: pointer"></button></a>
+                  </td>
+
+              </tr>
+              {% endfor %}
+          </table>
+      </div>
+
+<!--      <p> Name: {{ x.employee_name}}</p>-->
+<!--      <img src="{{ x.photo.url }}" alt="image" height="100px" width="100px">-->
+
+
+
+
+</body>
+</html>

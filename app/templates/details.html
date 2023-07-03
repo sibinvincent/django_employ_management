@@ -1,0 +1,89 @@
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/media/font/fontello.css" type="text/css">
+    <style>
+        td {
+           padding-left: 20%;
+        }
+        table tr {
+
+              height: 40px;
+        }
+        .icon-back {
+             font-size: 20px;
+        }
+    </style>
+</head>
+<body style=" background-color: rgb(221, 208, 216); margin: 0;">
+
+<table style="margin-left: 70%;margin-top: 2%;  " width="20%">
+
+    <tr>
+        <th style="padding-bottom: 1px;"><a href="{% url 'employee' %}" style="text-decoration: none;color: blue;" class="icon-back">Back</a></th>
+
+
+    </tr>
+
+</table>
+
+<div style="text-align: right; margin-right: 35%; font-size: 30px;color: blue;cursor: pointer; ">
+    <butto class="icon-print" onclick="printform('print')"></butto>
+</div>
+<form action="post" style="width: 30%; border: 1px solid black;margin: auto; margin-top: 1%;background: white;" id="print">
+
+    <h5 style="text-align: center">Profile of {{employee.employee_name}}</h5>
+   <span><img src="{{employee.photo.url}}" alt="Img" height="100px" width="100px" style="border: 1px black solid; margin-left:18%; margin-top: 5% ;margin-bottom: 10%;"></span>
+
+
+
+    <table width="100%" style="padding-bottom: 2%;">
+
+
+          <tr ><td>Name </td><td>:</td><td>{{employee.employee_name}}</td></tr>
+          <tr ><td>Designation </td><td>:</td><td>{{employee.designation}}</td></tr>
+          <tr ><td>Phone </td><td>:</td><td>{{employee.phone}}</td></tr>
+          <tr ><td>Email </td><td>:</td><td>{{employee.email}}</td></tr>
+          <tr ><td>Qualification </td><td>:</td><td>{{employee.qualification}}</td></tr>
+          <tr ><td>address</td><td>:</td><td>{{employee.address}}</td></tr>
+          <tr ><td>Remarks</td><td>:</td><td>{{employee.remarks}}</td></tr>
+          <tr ><td>Salary  </td><td>:</td><td>{{employee.salary }} INR</td></tr>
+          <tr ><td>Status</td><td>:</td><td>{% if employee.Status %} Working {% else %} Left {% endif %}</td></tr>
+          <tr ><td>Joining Date</td><td>:</td><td>{{employee.created}}</td></tr>
+           <tr><td>Experience</td><td>:</td><td>{{ employee.created|calculate_experience }}</td></tr>
+
+
+
+
+    </table>
+
+
+    <h5 style="text-align: center">-- End Of Statement--</h5>
+</form>
+
+
+
+
+
+
+<script type="text/javascript">
+    function printform(formName) {
+        var printContents = document.getElementById(formName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+        window.print();
+
+        // Restore the original contents after printing
+        document.body.innerHTML = originalContents;
+    }
+</script>
+
+
+</body>
+</html>

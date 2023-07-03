@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/media/font/fontello.css" type="text/css">
+    <style>
+         a {
+           text-decoration: none;
+           color: blue;
+
+         }
+
+         th {
+            text-align: left;
+         }
+         td {
+            text-align: left;
+
+         }
+         .icon-back{
+               font-size: 20px;
+         }
+
+    </style>
+</head>
+<body style=" background-color: rgb(221, 208, 216); margin: 0;" >
+<table style="margin-left: 80%;margin-top: 2%;  " width="20%">
+
+    <tr>
+        <th style="padding-bottom: 10px;"><a href="{% url 'employee' %}"class="icon-back">Back </a></th>
+
+    </tr>
+
+</table>
+
+<div style="background-image: url('{% static 'signin.jpg' %}');background-repeat: no-repeat;background-size: cover; height: 600px;">
+    <br>
+    <br>
+    <form action="" method="post"  enctype="multipart/form-data"  style="background-color: rgb(222, 226, 230); text-align: center; padding-top: 5%;margin-left: 35%;margin-right: 35%;">
+       {% csrf_token %}
+        <h3>Add Employee</h3>
+
+       <table style=" margin: auto;">
+
+
+              <tr> <th >Name</th></tr>
+              <tr><td>{{form.employee_name}}</td></tr>
+              <tr> <th >Phone</th></tr>
+              <tr><td>{{form.phone}}</td></tr>
+              <tr> <th >Email</th></tr>
+              <tr><td>{{form.email}}</td></tr>
+              <tr> <th >Photo</th></tr>
+              <tr><td>{{form.photo}}</td></tr>
+              <tr> <th >Designation</th></tr>
+              <tr><td>{{form.designation}}</td></tr>
+               <tr> <th >Qualification</th></tr>
+              <tr><td>{{form.qualification}}</td></tr>
+               <tr> <th >Address</th></tr>
+              <tr><td>{{form.address}}</td></tr>
+              <tr> <th >Salary</th></tr>
+              <tr><td>{{form.salary}}</td></tr>
+              <tr> <th >Remarks</th></tr>
+              <tr><td>{{form.remarks}}</td></tr>
+              <tr> <th >Status: {{form.Status}}</th></tr>
+
+
+
+
+
+       </table>
+
+    <input type="submit" value="Submit" style="margin-top: 5%;margin-bottom: 5%;">
+
+
+   </form>
+</div>
