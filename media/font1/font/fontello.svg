@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2023 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="login" unicode="&#xe800;" d="M800 800q42 0 71-29t29-71l0-700q0-40-29-70t-71-30l-450 0q-40 0-69 30t-29 70l0 100 98 0 0-100 450 0 0 700-450 0 0-150-98 0 0 150q0 42 29 71t69 29l450 0z m-350-670l0 120-450 0 0 150 450 0 0 120 200-194z" horiz-adv-x="900" />
+
+<glyph glyph-name="link-ext" unicode="&#xf08e;" d="M786 332v-178q0-67-47-114t-114-47h-464q-67 0-114 47t-47 114v464q0 66 47 113t114 48h393q7 0 12-5t5-13v-36q0-8-5-13t-12-5h-393q-37 0-63-26t-27-63v-464q0-37 27-63t63-27h464q37 0 63 27t26 63v178q0 8 5 13t13 5h36q8 0 13-5t5-13z m214 482v-285q0-15-11-25t-25-11-25 11l-98 98-364-364q-5-6-13-6t-12 6l-64 64q-6 5-6 12t6 13l364 364-98 98q-11 11-11 25t11 25 25 11h285q15 0 25-11t11-25z" horiz-adv-x="1000" />
+
+<glyph glyph-name="wpforms" unicode="&#xf298;" d="M287 342v-72h-140v72h140z m0 142v-71h-140v71h140z m423-285v-72h-190v72h190z m0 143v-72h-375v72h375z m0 142v-71h-375v71h375z m76-480v692q0 4-4 8t-7 3h-18l-211-143-117 96-118-96-211 143h-17q-5 0-8-3t-4-8v-692q0-4 4-8t8-3h692q4 0 7 3t4 8z m-477 619l103 84h-227z m240 0l123 84h-227z m308 73v-692q0-35-24-59t-58-24h-692q-35 0-59 24t-24 59v692q0 35 24 59t59 24h692q34 0 58-24t24-59z" horiz-adv-x="857.1" />
+</font>
+</defs>
+</svg>

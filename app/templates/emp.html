@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/media/font/fontello.css" type="text/css">
+    <link rel="stylesheet" href="/media/font1/font/fontello.css" type="text/css">
     <style>
         table {
              width: 100%;
@@ -43,7 +44,7 @@
                    color: red;
         }
 
-        .icon-edit-alt:hover {
+        .icon-link-ext:hover {
                    color: blue;
         }
 
@@ -57,14 +58,46 @@
               font-size: 20px;
         }
 
+        .icon-wpforms {
+               font-size: 20px;
+               text-align: right;
+
+        }
+        .icon-wpforms:hover {
+                  color: green;
+
+
+
+
+        }
+
+
+
+
+
     </style>
 </head>
 
-<body style=" background-color: rgb(221, 208, 216); margin: 0;">
-         <h3 style="margin-top: 4%;background: #D7D7D7; padding: 5px;border: solid 2px grey">Employee Details</h3>
-       <section style="margin-top: 2%; text-align: right; margin-right: 2%">
+<body style=" background-color: #dce6f5; margin: 0;">
+<nav style=" width: 100%; background: #466EF2 ; padding-top: 20px; padding-bottom: 20px; text-align: right; padding">
+
+<h1 style="color: white; text-align: center;">Employee Management</h1>
+
+
+</nav>
+
+<section style=" width: 100%; background: #84aae3; padding-top: 1px; padding-bottom: 1px; text-align: center; ">
+    <img src="/media/images/emp1.png" alt="img" height="400px;" width="40%">
+
+    <h4>"Empower Your Workforce, Simplify Your Management"</h4>
+
+
+</section>
+
+
+       <section style="margin-top: 2%; text-align: right; margin-right: 2% ;">
           {% if user.is_authenticated %}
-               <a href="{% url 'create' %}" style="text-decoration: none;">
+               <a href="{% url 'create' %}" style="text-decoration: none; ">
                <button style="color: blue; margin-right: 2%; " class="icon-user-plus"> Add</button></a>
                <a href="{% url 'logout' %}" style="text-decoration: none;">
                <button style="color: blue;" class="icon-logout">Logout</button></a>
@@ -75,7 +108,7 @@
 
       <div>
 
-          <table>
+          <table style="padding-top: 20px;padding-bottom: 20px; background: #e5e5e5; margin-top: 10px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);">
               <tr>
                   <th>Id</th>
                   <th>Name</th>
@@ -92,16 +125,16 @@
               </tr>
                {% for x in emp %}
               <tr>
-                  <td style="text-align: center">{{ x.id}}</td>
-                  <td>{{ x.employee_name}}</td>
+                  <td style="text-align: center">{{ x.id}} </td>
+                  <td>{{ x.employee_name}} <a href="{% url 'exp' x.id %}" ><button class="icon-wpforms" title="Experience Certificate"></button></a></td>
                   <td>{{ x.designation}}</td>
-                  <td>{{ x.phone}}</td>
-                  <td>{{ x.email}}</td>
+                  <td><a href="" class="icon-phone" style="color: black;margin-left: 2px; font-size: 20px;"></a>{{ x.phone}}</td>
+                  <td ><a href="" class="icon-mail-alt" style="color: black;margin-left: 2px;font-size: 20px;"></a> {{ x.email}}</td>
                   <td>{{ x.qualification}}</td>
                   <td>
-                    {% if x.address|length <= 10 %}
+                    {% if x.address|length <= 10 %}<a href="" class="icon-address-book-o" style="color: black;margin-left: 2px;font-size: 20px;"></a>
                     {{ x.address }}
-                    {% else %}
+                    {% else %}<a href="" class="icon-address-book-o" style="color: black;margin-left: 2px;font-size: 20px;"></a>
                     {{ x.address|slice:":30" }}... <a href="{% url 'details' x.id %}"
                                                              style="color: blue">More</a>
                     {% endif %}
@@ -118,9 +151,9 @@
                   <td style="text-align: center">{% if x.Status %} Working {% else %} Left {% endif %}</td>
                   <td>{{ x.created}}</td>
                   <td style="text-align: center">
-                      <a href="{% url 'details' x.id %}" style="text-decoration: none"><button class="icon-edit-alt" style="font-size: 20px;cursor: pointer; "></button></a>
-                      <a href="{% url 'delete' x.id %}"style="text-decoration: none"><button class="icon-trash" style="font-size: 20px; cursor: pointer;"></button></a>
-                      <a href="{% url 'update' x.id %}"style="text-decoration: none"><button class="icon-pencil" style="font-size: 20px; cursor: pointer"></button></a>
+                      <a href="{% url 'details' x.id %}" style="text-decoration: none"><button class="icon-link-ext" style="font-size: 20px;cursor: pointer; " title="Profile"></button></a>
+                      <a href="{% url 'delete' x.id %}"style="text-decoration: none"><button class="icon-trash" style="font-size: 20px; cursor: pointer;" title="Delete"></button></a>
+                      <a href="{% url 'update' x.id %}"style="text-decoration: none"><button class="icon-pencil" style="font-size: 20px; cursor: pointer" title="Edit"></button></a>
                   </td>
 
               </tr>
@@ -130,6 +163,13 @@
 
 <!--      <p> Name: {{ x.employee_name}}</p>-->
 <!--      <img src="{{ x.photo.url }}" alt="image" height="100px" width="100px">-->
+
+
+<footer>
+    <div style="background: #84aae3; text-align: center;color: white; margin-top: 2%; padding-top: 1%;padding-bottom: 1%;">
+        <h3 >2023 All Rights Received</h3>
+    </div>
+</footer>
 
 
 

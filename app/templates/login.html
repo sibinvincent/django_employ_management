@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/media/font/fontello.css" type="text/css">
     <style>
 
         * {
@@ -13,33 +14,60 @@
            list-style: none;
            padding-left: 30%;
         }
+        .icon-back {
+             font-size: 30px;
+             color: white;
+             text-decoration: none;
+             margin-right: 20px;
+        }
+
+
+
     </style>
 </head>
-<body style=" height:630px;  background-image: url('/media/pics/banner.png');background-repeat: no-repeat;background-size: cover;">
+<body style="background-color: #dce6f5; margin: 0; ">
+<nav style=" width: 100%; background: #466EF2; padding-top: 20px; padding-bottom: 20px; text-align: right; padding">
+
+<h1 style="color: white; text-align: center;">Employee Management System</h1>
+    <a href="{% url 'index' %}"class="icon-back" >Back </a>
+
+
+</nav>
+
+<section style=" width: 100%; background: #84aae3; padding-top: 5%; padding-bottom: 5%; text-align: center; ">
+    <img src="/media/images/login.png" alt="img" height="300px;" width="30%">
+
+
+</section>
+
 <div  >
        <div>
 
-        <form method="post"  style="margin-left: 40%;margin-right: 35%;margin-top: 20%;padding-top:2%;padding-bottom:2%; background: #D7D7D7; border-radius: 5%;">
+        <form method="post"  style="margin-left: 35%;margin-right: 35%;margin-top: 2%;padding-top:2%;padding-bottom:2%; background: #D7D7D7; border-radius: 5%;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);">
             {% csrf_token %}
 
             <ul>
-                 <li> <h3>Login</h3></li>
+                 <li> <h2>Login</h2></li>
                 <br>
-                <li><h3>Username</h3></li>
+                <li><h2>Username</h2></li>
                 <li>{{form.username}}</li>
                 <br>
 
-                <li><h3>Password</h3></li>
+                <li><h2>Password</h2></li>
                 <li>{{form.password}}</li>
             </ul>
             <br>
 
 
-            <input type="submit" value="Submit" style="margin-left: 40%;">
+            <input type="submit" value="Login" style="margin-left: 40%;">
         </form>
        </div>
 </div>
-
+<footer>
+    <div style="background: #84aae3; text-align: center;color: white; margin-top: 2%; padding-top: 1%;padding-bottom: 1%;">
+        <h3 >2023 All Rights Received</h3>
+    </div>
+</footer>
 
 </body>
 </html>

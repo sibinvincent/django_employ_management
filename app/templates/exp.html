@@ -1,0 +1,88 @@
+{% load static%}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/media/font/fontello.css" type="text/css">
+    <style>
+        * {
+           margin: 0;
+        }
+        .icon-back {
+                 color: white;
+                 font-size: 30px;
+                 text-decoration: none;
+                 padding-right: 30px;
+        }
+
+    </style>
+</head>
+<body style="background: #dce6f5">
+<nav style=" width: 100%; background: #466EF2 ; padding-top: 20px; padding-bottom: 20px; text-align: right; padding">
+
+<h1 style="color: white; text-align: center;">Employee Management</h1>
+    <a href="{% url 'employee' %}"class="icon-back" >Back </a>
+
+
+</nav>
+
+<section style=" width: 100%; background: #84aae3; padding-top: 20px; padding-bottom: 20px;padding-left: 20%; text-align: center; display: flex; ">
+    <img src="/media/images/exp.png" alt="img" height="300px;" width="30%">
+    <img src="/media/images/exper.png" alt="img" height="300px;" width="30%">
+
+
+</section>
+
+<br>
+<br>
+
+
+ <butto style="margin-left: 72%; font-size: 30px;color: blue;" class="icon-print" id="exp"  onclick="printform('print')"></butto>
+
+<div style="margin-top: 2px;" >
+
+    <form action="" id="print"  style="background: white;margin-right: 25%; margin-left: 25%;padding-top: 60px;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); ">
+
+        <h1 style="text-align: center;">Experience Certificate</h1>
+        <br>
+        <br>
+        <br>
+
+                 <div style="margin-right: 20%;margin-left: 20%; font-size: 20px; padding-bottom: 20px;padding-top: 20px;">  This is to certify that Mr./Ms. {{employee.employee_name}} has
+    worked withThe Company  as {{employee.designation}} from {{employee.created}} for
+    a period of {{ employee.created|calculate_experience }} During their tenure,
+    {{employee.employee_name}} demonstrated excellent skills and expertise in their
+    role.{{employee.employee_name}} have shown great dedication, professionalism and
+    contributed significantly to the success of our organization.
+                     </div>
+
+
+                                                      <h5 style="text-align: right; margin-right: 30%">signature</h5>
+            <p style="color:blue;margin-left: 60%; padding-bottom: 80px;" >Digitally Signed By HR</p>
+
+    </form>
+
+</div>
+
+<script type="text/javascript">
+    function printform(exp) {
+        var printContents = document.getElementById(exp).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+        window.print();
+
+        // Restore the original contents after printing
+        document.body.innerHTML = originalContents;
+    }
+</script>
+<footer>
+    <div style="background: #84aae3; text-align: center;color: white; margin-top: 2%; padding-top: 1%;padding-bottom: 1%;">
+        <h3 >2023 All Rights Received</h3>
+    </div>
+</footer>
+
+</body>
+</html>

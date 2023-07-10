@@ -16,26 +16,36 @@
               height: 40px;
         }
         .icon-back {
-             font-size: 20px;
+             font-size: 30px;
+             color: white;
+             text-decoration: none;
+             margin-right: 30px;
         }
     </style>
 </head>
-<body style=" background-color: rgb(221, 208, 216); margin: 0;">
+<body style=" background-color: #dce6f5; margin: 0;">
+<nav style=" width: 100%; background: #466EF2; padding-top: 20px; padding-bottom: 10px; text-align: right; padding">
 
-<table style="margin-left: 70%;margin-top: 2%;  " width="20%">
-
-    <tr>
-        <th style="padding-bottom: 1px;"><a href="{% url 'employee' %}" style="text-decoration: none;color: blue;" class="icon-back">Back</a></th>
+<h1 style="color: white; text-align: center;">Employee Management</h1>
+    <a href="{% url 'employee' %}"class="icon-back" >Back </a>
 
 
-    </tr>
+</nav>
 
-</table>
+<section style=" width: 100%; background: #84aae3; padding-top: 5px; padding-bottom: 5px; text-align: center; ">
+    <img src="/media/images/emp3.png" alt="img" height="400px;" width="30%">
 
-<div style="text-align: right; margin-right: 35%; font-size: 30px;color: blue;cursor: pointer; ">
-    <butto class="icon-print" onclick="printform('print')"></butto>
+
+</section>
+
+
+
+<div style="text-align: right; margin-right: 35%; font-size: 30px;color: blue;cursor: pointer; margin-top: 2%; ">
+    <butto class="icon-print" id="details"  onclick="printform('print')"></butto>
 </div>
-<form action="post" style="width: 30%; border: 1px solid black;margin: auto; margin-top: 1%;background: white;" id="print">
+<div style="display: flex;">
+    <img src="/media/images/profile.png" alt="img" width="600px" height="800px" style="margin-left: 3%; ">
+<form action="post" style="width: 30%; border: 1px solid black; margin-top: 1%;background: white; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);" id="print" >
 
     <h5 style="text-align: center">Profile of {{employee.employee_name}}</h5>
    <span><img src="{{employee.photo.url}}" alt="Img" height="100px" width="100px" style="border: 1px black solid; margin-left:18%; margin-top: 5% ;margin-bottom: 10%;"></span>
@@ -45,7 +55,7 @@
     <table width="100%" style="padding-bottom: 2%;">
 
 
-          <tr ><td>Name </td><td>:</td><td>{{employee.employee_name}}</td></tr>
+          <tr ><td>Name </td><td>:</td><td>{{employee.employee_name}} </td></tr>
           <tr ><td>Designation </td><td>:</td><td>{{employee.designation}}</td></tr>
           <tr ><td>Phone </td><td>:</td><td>{{employee.phone}}</td></tr>
           <tr ><td>Email </td><td>:</td><td>{{employee.email}}</td></tr>
@@ -65,6 +75,7 @@
 
     <h5 style="text-align: center">-- End Of Statement--</h5>
 </form>
+</div>
 
 
 
@@ -72,8 +83,8 @@
 
 
 <script type="text/javascript">
-    function printform(formName) {
-        var printContents = document.getElementById(formName).innerHTML;
+    function printform(details) {
+        var printContents = document.getElementById(details).innerHTML;
         var originalContents = document.body.innerHTML;
 
         document.body.innerHTML = printContents;
@@ -84,6 +95,10 @@
     }
 </script>
 
-
+<footer>
+    <div style="background: #84aae3; text-align: center;color: white; margin-top: 2%; padding-top: 1%;padding-bottom: 1%;">
+        <h3 >2023 All Rights Received</h3>
+    </div>
+</footer>
 </body>
 </html>

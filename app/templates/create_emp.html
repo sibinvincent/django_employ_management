@@ -7,9 +7,11 @@
     <title>Title</title>
     <link rel="stylesheet" href="/media/font/fontello.css" type="text/css">
     <style>
-         a {
+         nav a {
            text-decoration: none;
-           color: blue;
+           color: white;
+           padding-right: 40px;
+
 
          }
 
@@ -21,25 +23,36 @@
 
          }
          .icon-back{
-               font-size: 20px;
+               font-size: 30px;
+
+
          }
 
     </style>
 </head>
-<body style=" background-color: rgb(221, 208, 216); margin: 0;" >
-<table style="margin-left: 80%;margin-top: 2%;  " width="20%">
+<body style=" background-color: #dce6f5; margin: 0;" >
 
-    <tr>
-        <th style="padding-bottom: 10px;"><a href="{% url 'employee' %}"class="icon-back">Back </a></th>
+<nav style=" width: 100%; background: #466EF2 ; padding-top: 20px; padding-bottom: 20px; text-align: right; padding">
 
-    </tr>
+<h1 style="color: white; text-align: center;">Employee Management</h1>
+    <a href="{% url 'employee' %}"class="icon-back" >Back </a>
 
-</table>
+
+</nav>
+
+<section style=" width: 100%; background: #84aae3; padding-top: 5px; padding-bottom: 5px; text-align: center; ">
+    <img src="/media/images/update.png" alt="img" height="350px;" width="40%">
+
+
+</section>
+
+
+
 
 <div style="background-image: url('{% static 'signin.jpg' %}');background-repeat: no-repeat;background-size: cover; height: 600px;">
     <br>
     <br>
-    <form action="" method="post"  enctype="multipart/form-data"  style="background-color: rgb(222, 226, 230); text-align: center; padding-top: 5%;margin-left: 35%;margin-right: 35%;">
+    <form action="" method="post"  enctype="multipart/form-data"  style="background-color: rgb(222, 226, 230); text-align: center; padding-top: 5%;margin-left: 35%;margin-right: 35%;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);">
        {% csrf_token %}
         <h3>Add Employee</h3>
 
@@ -76,4 +89,9 @@
 
 
    </form>
+    <footer>
+    <div style="background: #84aae3; text-align: center;color: white; margin-top: 2%; padding-top: 1%;padding-bottom: 1%;">
+        <h3 >2023 All Rights Received</h3>
+    </div>
+</footer>
 </div>

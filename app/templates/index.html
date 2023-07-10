@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/media/font1/font/fontello.css" type="text/css">
+    <style>
+        * {
+          margin: 0;
+        }
+        .icon-login {
+             font-size: 20px;
+             margin-right: 30px;
+        }
+
+    </style>
+</head>
+
+<body style="background: #dce6f5;">
+<nav style=" width: 100%; background: #466EF2; padding-top: 30px; padding-bottom: 20px; text-align: right; padding">
+
+<h1 style="color: white; text-align: center;">Employee Management System</h1>
+    <a href="{% url 'login' %}"><button style="color: blue;" class="icon-login">Login</button></a>
+
+
+</nav>
+
+<section style=" width: 100%; background: #84aae3; padding-top: 10px; padding-bottom: 5px; text-align: center; ">
+    <img src="/media/images/employ.png" alt="img" height="600px;" width="60%">
+
+
+</section>
+<div>
+    <h1 style="text-align: center;margin-top: 2%;">About Employee Management</h1>
+    <p style="margin-left: 20%;margin-right: 20%;margin-top: 1%;">Our employee management system offers a range of comprehensive features designed to streamline and enhance the management of employees within our organization. With this system, administrators have the ability to efficiently add, delete, update, and create employee records at any time. This empowers us to maintain accurate and up-to-date employee information, ensuring smooth operations and effective decision-making.</p>
+    <p style="margin-left: 20%;margin-right: 20%;margin-top: 1%;">Additionally, our system includes an integrated feature for generating experience certificates, simplifying the process of acknowledging and validating employees' professional experience. This feature automates the certificate creation process, saving time and effort while ensuring accuracy and consistency.</p>
+    <p style="margin-left: 20%;margin-right: 20%;margin-top: 1%;">Employees also benefit from our system through their dedicated profile pages. These pages provide a centralized location for employees to access and update their personal information, review their employment history, and track their performance evaluations. This self-service functionality fosters transparency and empowers employees to take an active role in managing their own profiles.</p>
+    <p style="margin-left: 20%;margin-right: 20%;margin-top: 1%;">Furthermore, our system offers a convenient printing feature, allowing administrators to generate and print important documents, including experience certificates, directly from the system. This eliminates the need for manual document creation and ensures that printed materials are consistent and professionally presented.</p>
+    <p style="margin-left: 20%;margin-right: 20%;margin-top: 1%;">By incorporating these features into our employee management system, we aim to streamline administrative processes, enhance data accuracy, and provide employees with convenient tools to manage their profiles and access important documents. This comprehensive solution promotes efficiency, reduces administrative burdens, and supports effective employee management practices within our organization</p>
+
+</div>
+<footer>
+    <div style="background: #84aae3; text-align: center;color: white; margin-top: 2%; padding-top: 1%;padding-bottom: 1%;">
+        <h3 >2023 All Rights Received</h3>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,9 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
-
-from django.shortcuts import render
+from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView, TemplateView
 
 from .models import Employee
 
@@ -28,14 +26,16 @@ class Login(LoginView):
 
 class Logout(LogoutView):
     template_name = 'logout.html'
-    next_page = reverse_lazy('login')  # Redirect to the login page after logout
+    next_page = reverse_lazy('index')  # Redirect to the login page after logout
 
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
+
 class CreateEmp(LoginRequiredMixin, CreateView):
     model = Employee
-    fields = ['employee_name', 'photo', 'designation','qualification','address','remarks','salary','Status','phone','email']
+    fields = ['employee_name', 'photo', 'designation', 'qualification', 'address', 'remarks', 'salary', 'Status',
+              'phone', 'email']
     success_url = reverse_lazy('employee')
     template_name = 'create_emp.html'
 
@@ -43,9 +43,11 @@ class CreateEmp(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super(CreateEmp, self).form_valid(form)
 
+
 class Details(LoginRequiredMixin, DetailView):
     model = Employee
     template_name = 'details.html'
+
 
 class Delete(LoginRequiredMixin, DeleteView):
     model = Employee
@@ -53,13 +55,18 @@ class Delete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('employee')
     template_name = 'delete.html'
 
+
 class Update(LoginRequiredMixin, UpdateView):
     model = Employee
-    fields = ['photo','designation','qualification','address','remarks','salary','phone','email','Status']
+    fields = ['photo', 'designation', 'qualification', 'address', 'remarks', 'salary', 'phone', 'email', 'Status']
     success_url = reverse_lazy('employee')
     template_name = 'create_emp.html'
 
 
+class Exp(LoginRequiredMixin, DetailView):
+    model = Employee
+    template_name = 'exp.html'
 
 
-
+class Index(TemplateView):
+    template_name = 'index.html'
