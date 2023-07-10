@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView, TemplateView
 
@@ -70,3 +70,9 @@ class Exp(LoginRequiredMixin, DetailView):
 
 class Index(TemplateView):
     template_name = 'index.html'
+
+
+class ChangePassword(LoginRequiredMixin, PasswordChangeView):
+    template_name = 'changepassword.html'
+    success_url = reverse_lazy('employee')
+

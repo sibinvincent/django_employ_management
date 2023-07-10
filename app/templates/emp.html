@@ -81,7 +81,7 @@
 <body style=" background-color: #dce6f5; margin: 0;">
 <nav style=" width: 100%; background: #466EF2 ; padding-top: 20px; padding-bottom: 20px; text-align: right; padding">
 
-<h1 style="color: white; text-align: center;">Employee Management</h1>
+<h1 style="color: white; text-align: center; font-size: 200%;">Employee Management</h1>
 
 
 </nav>
@@ -94,16 +94,22 @@
 
 </section>
 
+<div >
 
        <section style="margin-top: 2%; text-align: right; margin-right: 2% ;">
           {% if user.is_authenticated %}
+              <h1 style="display: inline-block; margin-right: 30%;">Employee Register</h1>
                <a href="{% url 'create' %}" style="text-decoration: none; ">
                <button style="color: blue; margin-right: 2%; " class="icon-user-plus"> Add</button></a>
                <a href="{% url 'logout' %}" style="text-decoration: none;">
                <button style="color: blue;" class="icon-logout">Logout</button></a>
+               <a href="{% url 'change-password' %}" style="text-decoration: none;">
+               <button style="color: blue;" class="icon-logout">Change Password</button></a>
 
            {% endif %}
        </section>
+<!--    <h1 style="display: inline-block;">Employee Register</h1>-->
+</div>
 
 
       <div>
