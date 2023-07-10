@@ -21,6 +21,10 @@
              margin-right: 20px;
         }
 
+        .form-group {
+              padding-left: 30%;
+        }
+
 
 
     </style>
@@ -41,27 +45,34 @@
 </section>
 
 <div  >
-       <div>
 
-        <form method="post"  style="margin-left: 35%;margin-right: 35%;margin-top: 2%;padding-top:2%;padding-bottom:2%; background: #D7D7D7; border-radius: 5%;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);">
+
+     <form method="post"  style="margin-left: 35%;margin-right: 35%;margin-top: 2%;padding-top:2%;padding-bottom:2%; background: #D7D7D7; border-radius: 5%;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);">
             {% csrf_token %}
 
-            <ul>
-                 <li> <h2>Login</h2></li>
-                <br>
-                <li><h2>Username</h2></li>
-                <li>{{form.username}}</li>
-                <br>
+    <div class="form-group">
+       <label for="username">Username:</label>
+        <br>
+        <input type="username" name="username">
+         {% if form.errors.username %}
+            <p style="color: red;">{{ form.errors.username}}</p>
+        {% endif %}
+    </div>
 
-                <li><h2>Password</h2></li>
-                <li>{{form.password}}</li>
-            </ul>
-            <br>
+    <div class="form-group">
+       <label for="password" >Password:</label>
+        <br>
+        <input type="password" name="password">
+         {% if form.errors.password %}
+            <p style="color: red;">{{ form.errors.password}}</p>
+        {% endif %}
+    </div>
+         <br>
 
 
             <input type="submit" value="Login" style="margin-left: 40%;">
-        </form>
-       </div>
+    </form>
+
 </div>
 <footer>
     <div style="background: #84aae3; text-align: center;color: white; margin-top: 2%; padding-top: 1%;padding-bottom: 1%;">

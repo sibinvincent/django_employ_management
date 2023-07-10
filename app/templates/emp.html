@@ -6,6 +6,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="/media/font/fontello.css" type="text/css">
     <link rel="stylesheet" href="/media/font1/font/fontello.css" type="text/css">
+    <link rel="stylesheet" href="/media/font2/font/fontello.css" type="text/css">
     <style>
         table {
              width: 100%;
@@ -72,6 +73,12 @@
         }
 
 
+        .icon-key {
+             font-size: 20px;
+             color: blue;
+        }
+
+
 
 
 
@@ -98,13 +105,13 @@
 
        <section style="margin-top: 2%; text-align: right; margin-right: 2% ;">
           {% if user.is_authenticated %}
-              <h1 style="display: inline-block; margin-right: 30%;">Employee Register</h1>
+              <h1 style="display: inline-block; margin-right: 26%;">Employee Register</h1>
                <a href="{% url 'create' %}" style="text-decoration: none; ">
-               <button style="color: blue; margin-right: 2%; " class="icon-user-plus"> Add</button></a>
+               <button style="color: blue; margin-right: 1%; " class="icon-user-plus" title="Add Employee"> Add</button></a>
                <a href="{% url 'logout' %}" style="text-decoration: none;">
-               <button style="color: blue;" class="icon-logout">Logout</button></a>
-               <a href="{% url 'change-password' %}" style="text-decoration: none;">
-               <button style="color: blue;" class="icon-logout">Change Password</button></a>
+               <button style="color: blue;" class="icon-logout" title="Logout">Logout</button></a>
+               <a href="{% url 'change-password' %}" style="text-decoration: none;margin-right: 2%;margin-left: 1%;">
+               <button style="color: blue;" class="icon-key" title="Change Password"></button></a>
 
            {% endif %}
        </section>
@@ -132,7 +139,7 @@
                {% for x in emp %}
               <tr>
                   <td style="text-align: center">{{ x.id}} </td>
-                  <td>{{ x.employee_name}} <a href="{% url 'exp' x.id %}" ><button class="icon-wpforms" title="Experience Certificate"></button></a></td>
+                  <td>{{ x.employee_name}} </td>
                   <td>{{ x.designation}}</td>
                   <td><a href="" class="icon-phone" style="color: black;margin-left: 2px; font-size: 20px;"></a>{{ x.phone}}</td>
                   <td ><a href="" class="icon-mail-alt" style="color: black;margin-left: 2px;font-size: 20px;"></a> {{ x.email}}</td>
@@ -154,12 +161,13 @@
                     {% endif %}
                   </td>
                   <td>{{ x.salary}}</td>
-                  <td style="text-align: center">{% if x.Status %} Working {% else %} Left {% endif %}</td>
+                  <td style="text-align: center">{% if x.Status %} <p style="color: green"> Working </p>{% else %} <p style="color: red"> Left </p>{% endif %}</td>
                   <td>{{ x.created}}</td>
                   <td style="text-align: center">
                       <a href="{% url 'details' x.id %}" style="text-decoration: none"><button class="icon-link-ext" style="font-size: 20px;cursor: pointer; " title="Profile"></button></a>
                       <a href="{% url 'delete' x.id %}"style="text-decoration: none"><button class="icon-trash" style="font-size: 20px; cursor: pointer;" title="Delete"></button></a>
                       <a href="{% url 'update' x.id %}"style="text-decoration: none"><button class="icon-pencil" style="font-size: 20px; cursor: pointer" title="Edit"></button></a>
+                      <a href="{% url 'exp' x.id %}" ><button class="icon-wpforms" title="Experience Certificate"></button></a>
                   </td>
 
               </tr>

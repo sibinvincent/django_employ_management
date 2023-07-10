@@ -74,5 +74,4 @@ class Index(TemplateView):
 
 class ChangePassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'changepassword.html'
-    success_url = reverse_lazy('employee')
-
+    success_url = reverse_lazy('index')
