@@ -1,5 +1,5 @@
-import details as details
-import login as login
+#import details as details
+#import login as login
 from django.urls import path
 
 from .views import EmpView, Login, Logout, CreateEmp, Details, Delete, Update, Exp, Index, ChangePassword
